@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      function submitForm() {
+        // var first_name = (document.getElementsByName)('first_name')[0].value;
+        // var first_name_id = (document.getElementById)('f_name').value;
+        var fname = document.forms["name_form"]["first_name"].value;
+        if (fname) {
+          console.log("Your name is " + fname);
+        } else {
+          console.log("Please enter a name");
+        }
+
+        console.log(document.forms["name_form"]["gender"][0]);
+        // return false;
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form
+      name="name_form"
+      method="GET"
+      action=""
+      onsubmit="return submitForm()"
+    >
+      <input type="text=" id="f_name" name="first_name" /><br />
+      Male:<input type="radio" name="gender" value="male" /><br />
+      Female:<input type="radio" name="gender" value="female" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <!-- <button onClick="submitForm()">Submiit</button> -->
+  </body>
+</html>
