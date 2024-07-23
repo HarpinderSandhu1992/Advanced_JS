@@ -1,16 +1,27 @@
-function testSubmit(event) {
-  var username = document.forms["myForm"]["username"].value;
-  console.log("username: ", username);
+$(document).ready(function () {
+  // jQuery code goes here
+  console.log("jQuery is ready");
 
-  //   Insert username
-  document.getElementById("results").innerHTML =
-    "<p class='p1'>Username: " + username + "</p>";
-  results.style.backgroundColor = "lightblue";
-  results.style.fontSize = "50px";
+  $("#myForm").on("submit", function (event) {
+    console.log("Form submitted");
 
-  var p1 = document.getElementsByClassName("p1");
-  p1[0].classList.add("p2");
+    // get form data
+    var formData = $("#myForm").serializeArray();
+    console.log("Form data: ", formData);
 
-  // Prevent default form submission to avoid reloading
-  event.preventDefault();
-}
+    // var username = formData[0].value;
+    var username = $("#username").val();
+    // inert username into page
+    var resultsDiv = $("#results");
+    resultsDiv.html("<p class='p1'>Username: " + username + "</p>");
+    resultsDiv.css("backgroundColor", "lightblue");
+
+    // get p1 element by class name to add another class to it
+    var p1_element = $(".p1");
+    p1_element.addClass("p2");
+    // remove p1 class
+    p1_element.removeClass("p1");
+
+    event.preventDefault();
+  });
+});
